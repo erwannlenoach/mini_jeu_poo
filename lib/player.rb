@@ -11,18 +11,17 @@ class Player
 	end 
 
 	def show_state
-		
-		if @life_points  <= 0 #message de mort si les points de vie tombent en dessous de 0
+		if @life_points  <= 0 #message de mort si les points de vie tombent en dessous de 0 / sinon affichage des points de vie 
 			puts "le joueur #{@name} a été tué"
 		else puts "#{@name} a #{@life_points} points de vie"
 			end 
 	end  
 
-	def gets_damage(damage)
+	def gets_damage(damage) #prise en compte des dommages subis via la fonction attacks
 		@life_points = @life_points - damage
 	end 
 
-	def attacks(target) 
+	def attacks(target)  #attaque en fonction du résultat du lancé de dès - call de la fonction compute_damage
 		damage = compute_damage
 		target.gets_damage(damage)
       	puts " #{@name} attaque #{target.name}"
@@ -35,8 +34,7 @@ class Player
 
 end 
 
-
-class HumanPlayer < Player
+class HumanPlayer < Player #le jeu 2.0 n'est pas fini mais les méthodes de HumanPlayer sont fonctionnelles
 
   	attr_accessor :weapon_level
 
@@ -47,7 +45,7 @@ class HumanPlayer < Player
   	end
 
   	def show_state
-		
+	
 		if @life_points  <= 0 #message de mort si les points de vie tombent en dessous de 0
 			puts "le joueur #{@name} a été tué"
 		else puts "#{@name} a #{@life_points} points de vie et a une arme de niveau #{@weapon_level}"
@@ -74,16 +72,19 @@ class HumanPlayer < Player
 
 		if health_pack == 1
 			puts "tu n'as rien trouvé looser"
-
 		elsif health_pack >= 2 && health_pack <= 5 
 			puts "Bravo, tu as trouvé un pack de +50 points de vie !"
 			@life_points + 50
-
 		elsif health_pack == 6
 			puts "Bravo, tu as trouvé un pack de +80 points de vie !"
 			@life_points + 80
 		end 
-	
+
+	if @life_points > 100
+	@life_points = 100
+	end 
+
+	return @life_points
 	end 
 
 

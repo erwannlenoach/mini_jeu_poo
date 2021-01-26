@@ -6,14 +6,14 @@ require_relative 'lib/player'
 
 
 
-#test with player1 & player2
+#test des méthodes de la classe player avec players 1 et 2 / test des méthodes de la classe HumanPlayer avec player 3 
 
 player1 = Player.new("Josiane")
 player2 = Player.new("José")
-player3 = HumanPlayer.new("Jacques")
+player3 = HumanPlayer.new("Jacques") 
 
-binding.pry
 
+# test du jeu 1.0
 while player1.life_points > 0 && player2.life_points > 0 do  
 	puts " "
 	puts "Voici l'état de chaque joueur :"
@@ -33,4 +33,4 @@ while player1.life_points > 0 && player2.life_points > 0 do
 end  
 
 
-
+binding.pry #pour tester les méthodes de la classe Human Player avec player3
