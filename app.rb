@@ -10,7 +10,9 @@ require_relative 'lib/player'
 
 player1 = Player.new("Josiane")
 player2 = Player.new("José")
+player3 = HumanPlayer.new("Jacques")
 
+binding.pry
 
 while player1.life_points > 0 && player2.life_points > 0 do  
 	puts " "
@@ -29,4 +31,6 @@ while player1.life_points > 0 && player2.life_points > 0 do
 			player1.show_state
 		end
 end  
+
+
 
